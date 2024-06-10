@@ -1,8 +1,11 @@
 # alx-system_engineering-devops
 Postmortem: Database Server Outage on June 8, 2024
+
 Issue Summary:
 Duration of Outage:
-Start Time: June 8, 2024, 10:30 AM (UTC)
+
+Start Time: June 8,2024, 10:30 AM (UTC)
+
 End Time: June 8, 2024, 12:15 PM (UTC)
 
 Impact:
