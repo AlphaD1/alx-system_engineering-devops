@@ -13,22 +13,34 @@ The outage was caused by a misconfigured database connection pool that exhausted
 
 Timeline:
 10:30 AM: Issue detected via automated monitoring alerts indicating database connection timeouts.
+
 10:35 AM: Engineer on-call received alert and began investigation.
+
 10:40 AM: Initial investigation focused on database server health, which appeared normal.
+
 10:50 AM: Noticed spike in application server errors related to database connections.
+
 11:00 AM: Assumed issue was related to recent database server patch; began rollback process.
+
 11:20 AM: Rollback completed, but issue persisted.
+
 11:25 AM: Incident escalated to database team.
+
 11:35 AM: Database team identified high number of idle connections.
+
 11:50 AM: Misconfiguration in the application’s connection pool settings identified.
+
 12:00 PM: Reconfigured connection pool settings and restarted application servers.
+
 12:15 PM: Confirmed resolution of the issue, service fully restored.
+
 Root Cause and Resolution:
 Detailed Explanation of the Root Cause:
 The primary cause of the outage was an incorrect configuration in the database connection pool settings. Specifically, the maximum number of connections was set too low, while the minimum idle connections were set too high. This led to a scenario where the connection pool quickly exhausted available connections under normal load, causing the application to throw errors when trying to establish new connections.
 
 Detailed Explanation of the Resolution:
 The database team modified the connection pool configuration to increase the maximum number of connections and decrease the minimum number of idle connections. These changes were applied to the configuration files of the affected application servers. After making these adjustments, the application servers were restarted to apply the new settings. Monitoring was intensified to ensure stability, and the system returned to normal operation.
+
 
 Corrective and Preventative Measures:
 Improvements and Fixes:
